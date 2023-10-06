@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cursed Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #85FFBD;
+            background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        main {
+            background-color: transparent;
+            border: 3px solid white;
+            width: 360px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+/*            display: block;*/
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="password"]{
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn {
+            text-align: center;
+            margin-top: 15px;
+        }
+        button{
+        	border: 2px solid white;
+        	height: 40px;
+        	width: 200px;
+        	background-color: transparent;
+        	cursor: pointer;
+        	color: white;
+        	font-weight: bold ;
+        	border-radius: 5px;
+        }
+        button:hover{
+        	transform: scale(1.1);
+        }
+        button:active{
+        	transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+<header class="mainhead">
+    <h1>Cursed Registration</h1>
+</header>
+<main>
+    <h2>Register</h2>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="uName">User Name:</label>
+        <input type="text" name="uName" id="uName" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="dB">Date of Birth:</label>
+        <input type="date" name="dB" id="dB" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" name="email" id="email" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="pass">Password:</label>
+        <input type="password" name="pass" id="pass">
+    </div>
+    <div class="form-group">
+        <label for="rpass">Reverse Password:</label>
+        <input type="password" name="rpass" id="rpass">
+    </div>
+    <div class="form-group check">
+        <input type="checkbox" id="idiot" value="idiot">
+        <label for="idiot">I am an idiot</label>
+    </div>
+    <div class="btn">
+        <button onclick="prosess()">Submit</button>
+    </div>
+</main>
+<div id="result">
+    <h2 id="error"></h2>
+</div>
+<script type="text/javascript">
+	const names = [
+		"johnny sins",
+        "Jake Sparrow",
+        "harry potter",
+        "naruto uzumaki",
+        "goku",
+        "iron man",
+        "goat",
+        "golem",
+        "herobrine",
+        "zabbo",
+        "light yagami",
+        "joker",
+        "batman",
+        "superman",
+        "spider man",
+        "james bond",
+        "sherlock holmes",
+        "micky mouse",
+        "pikachu",
+        "tom",
+        "mr. bean",
+        "mr. beast",
+        "garfield"
+		]
+    const usernames = [
+        "dark_knight12",
+        "nightmare22",
+        "devil666",
+        "lucifer69",
+        "silent killer",
+        "ghost69",
+        "wicked42",
+        "lemonpie100",
+        "killerman2030",
+        "hunter420",
+        "weeb101",
+        "noman20",
+        "liam11",
+        "killer1969",
+        "rick233330",
+        "123killer321",
+        "your_daddy_100",
+        "daddy20",
+        "deadlyman33",
+        "classykiller304",
+        "mr.perfect101",
+        "jokerrrrr",
+        "___baby___"
+        ]
+	function prosess() {
+		let name = document.getElementById('name').value.toLowerCase()
+        let username = document.getElementById('uName').value.toLowerCase()
+        let dateofbirth = new Date(document.getElementById('dB').value)
+        let email = document.getElementById('email').value
+        let dateYear = parseInt(dateofbirth.getFullYear());
+        let pass = document.getElementById('pass').value;
+        let realpass = `${username}${dateYear}`
+        let rPass = document.getElementById('rpass').value.toLowerCase();
+        let check = document.getElementById('idiot');
+        let reversePass = `reverse${pass}`
+        if (names.includes(name))
+        {
+            if (usernames.includes(username))
+        {
+            if (dateYear == 69)
+            {
+                if (email)
+                {
+                    document.getElementById('error').innerHTML = "This is not a valid email, do not try something like this"
+                    
+                }else
+                {
+                    if (pass == realpass)
+                        {
+                            if (rPass == reversePass)
+                                {
+                                    if (check.checked === true)
+                                    {
+                                       document.getElementById('error').innerHTML = "Congratulation, You have beaten the cursed registration" 
+                                    }else{
+                                        document.getElementById('error').innerHTML = "Check the idiot box, So I can know that you are an idiot."
+                                    }
+                                } else
+                                {
+                                    document.getElementById('error').innerHTML = "This is not what I asked for."
+                                }
+                        } else 
+                        {
+                             document.getElementById('error').innerHTML = "Your password is too complex, try something easy"
+                        }
+                }
+            }else
+            {
+                document.getElementById('error').innerHTML = "Enter a valid birth year, dumbass"
+            }
+        } else
+        {
+            document.getElementById('error').innerHTML = "Pick a kool username, it's too boring"
+        }
+        } else
+        {
+            document.getElementById('error').innerHTML = "Your name is not famous enough"
+        }
+	}
+</script>
+</body>
+</html>
